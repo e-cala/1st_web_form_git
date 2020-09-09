@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.blue,
                 child: Column(
                   children: [
-                    Text('${_nameController.value}'),
+                    Text('${_nameController.text}'),
                     Text('${_idController.text}')
                   ]
                 ),
