@@ -52,13 +52,13 @@ class RightSide extends StatelessWidget {
                 stream: _bloc.nameStream,
                 builder: (context, snapshot) => snapshot.data == null
                     ? Text('Name: <no name>')
-                    : Text('Name: ${snapshot.data.toUpperCase()}')),
+                    : Text('Name: ${snapshot.data}')),
             SizedBox(height: constraints.maxHeight * 0.1),
             StreamBuilder<String>(
                 stream: _bloc.idStream,
                 builder: (context, snapshot) => snapshot.data == null
                     ? Text('Id: <nod id>')
-                    : Text('Id: ${snapshot.data.toUpperCase()}')),
+                    : Text('Id: ${snapshot.data}')),
           ]),
         ),
       ),

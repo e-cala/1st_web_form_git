@@ -1,6 +1,7 @@
 import 'package:rxdart/rxdart.dart';
+import 'package:web_form_git/src/blocs/validators.dart';
 
-class FormBloc{
+class FormBloc with Validators{
 
   BehaviorSubject _nameController = BehaviorSubject<String>();
   BehaviorSubject _idController = BehaviorSubject<String>();
@@ -10,12 +11,12 @@ class FormBloc{
    set addId(String text) => _idController.add(text);
 
   //stream
-  BehaviorSubject<String> get nameStream => _nameController.stream;
+  Stream<String> get nameStream => _nameController.stream.transform(validateName);
   BehaviorSubject<String> get idStream => _idController.stream;
 
   //get
-  get nameValue => _nameController.value;
-  get idValue => _idController.value;
+  String get nameValue => _nameController.value;
+  String get idValue => _idController.value;
 
   dispose() {
     _nameController?.close();
